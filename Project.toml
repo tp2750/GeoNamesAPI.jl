@@ -1,0 +1,7 @@
+name = "GeoNamesAPI"
+uuid = "765d8e3e-f214-4ecb-acbb-a2789e381393"
+authors = ["Thomas Poulsen <ta.poulsen@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.10"
