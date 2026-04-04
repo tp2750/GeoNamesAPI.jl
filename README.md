@@ -1,4 +1,4 @@
-# GeoNamesAPI
+# GeoNamesAPI.jl
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tp2750.github.io/GeoNamesAPI.jl/stable/)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tp2750.github.io/GeoNamesAPI.jl/dev/)
