@@ -10,7 +10,7 @@ GeoNamesAPI provides a simple access to the [GeoNames](https://www.geonames.org/
 You need to [register a username](https://www.geonames.org/login) with GeoNames to use the service.
 After you create the username, you need at activate it on the [account page](https://www.geonames.org/manageaccount).
 
-It is recommended to store the username as an environement variable in your `~/.julia/config/startup.jl` file:
+It is recommended to store the username as an environment variable in your `~/.julia/config/startup.jl` file:
 
 ``` julia
 ENV["GEONAMES_USER"]="yourusername"
@@ -43,7 +43,7 @@ search("String",q="paris", maxRows=10)
 ```
 
 The API can also return xml or rdf (selected by keyword "type").
-If that is set, the result is always returmed as String
+If that is set, the result is always returned as String
 
 ``` julia
 search(q="paris", maxRows=10, type="rdf")
@@ -51,7 +51,7 @@ search(q="paris", maxRows=10, type="rdf")
 
 ```
 
-We can also parse the result to a dataframe
+We can also parse the result to a data-frame
 
 ``` julia
 using DataFrames
