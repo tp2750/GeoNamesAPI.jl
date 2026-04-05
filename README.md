@@ -5,7 +5,10 @@
 [![Build Status](https://github.com/tp2750/GeoNamesAPI.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/tp2750/GeoNamesAPI.jl/actions/workflows/CI.yml?query=branch%3Amain) -->
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
-GeoNamesAPI provides a simple access to the [GeoNames](https://www.geonames.org/) [web service](https://www.geonames.org/export/web-services.html).
+[GeoNames](https://www.geonames.org/) is a service to look up coordinates and other information of geographical locations based on their name.
+
+GeoNamesAPI.jl provides a simple access to its [web service](https://www.geonames.org/export/web-services.html).
+
 
 You need to [register a username](https://www.geonames.org/login) with GeoNames to use the service.
 After you create the username, you need at activate it on the [account page](https://www.geonames.org/manageaccount).
