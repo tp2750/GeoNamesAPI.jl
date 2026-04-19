@@ -44,7 +44,7 @@ search("",q="paris", maxRows=2, type="json")
 # "{\"totalResultsCount\":50623,\"geonames\":[{\"adminCode1\":\"11\",\"lng\":\"2.3488\",\"geonameId\":2988507,\"toponymName\":\"Paris\",\"countryId\":\"3017382\",\"fcl\":\"P\",\"population\":2138551,\"countryCode\":\"FR\",\"name\":\"Paris\",\"fclName\":\"city, village,...\",\"adminCodes1\":{\"ISO3166_2\":\"IDF\"},\"countryName\":\"France\",\"fcodeName\":\"capital of a political entity\",\"adminName1\":\"Île-de-France\",\"lat\":\"48.85341\",\"fcode\":\"PPLC\"},{\"adminCode1\":\"17\",\"lng\":\"-76.79358\",\"geonameId\":3489854,\"toponymName\":\"Kingston\",\"countryId\":\"3489940\",\"fcl\":\"P\",\"population\":937700,\"countryCode\":\"JM\",\"name\":\"Kingston\",\"fclName\":\"city, village,...\",\"adminCodes1\":{\"ISO3166_2\":\"01\"},\"countryName\":\"Jamaica\",\"fcodeName\":\"capital of a political entity\",\"adminName1\":\"Kingston\",\"lat\":\"17.99702\",\"fcode\":\"PPLC\"}]}"
 ```
 
-There is a package extension to return DataFrames
+There is a package extension to return [DataFrames](https://github.com/JuliaData/DataFrames.jl)
 
 ``` julia
 using DataFrames
@@ -72,3 +72,86 @@ search(q="paris", maxRows=2)
 #   "geonames"          => Any[Object{String, Any}("adminCode1"=>"11", "lng"=>"2.3488", "geonameId"=>2988507, "toponymName"=>"Paris", "countryId"=>"3017382", "fcl"=>"P", "population"=>2138551, "countryCode"=>"FR", "name"=>"Paris", "fclName"=>"city, village,…
 ```
 
+There is also package extensions for [XML](https://github.com/JuliaComputing/XML.jl/) and [EzXML](https://github.com/JuliaIO/EzXML.jl)
+
+``` julia
+using GeoNamesAPI, EzXML
+x1 = search(q="paris", maxRows=2)
+# EzXML.Document(EzXML.Node(<DOCUMENT_NODE@0x0000000001d66290>))
+string(x1)
+# "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<geonames style=\"MEDIUM\">\n    <totalResultsCount>50623</totalResultsCount>\n    <geoname>\n        <toponymName>Paris</toponymName>\n        <name>Paris</name>\n        <lat>48.85341</lat>\n        <lng>2.3488</lng>\n        <geonameId>2988507</geonameId>\n        <countryCode>FR</countryCode>\n        <countryName>France</countryName>\n        <fcl>P</fcl>\n        <fcode>PPLC</fcode>\n    </geoname>\n    <geoname>\n        <toponymName>Kingston</toponymName>\n        <name>Kingston</name>\n        <lat>17.99702</lat>\n        <lng>-76.79358</lng>\n        <geonameId>3489854</geonameId>\n        <countryCode>JM</countryCode>\n        <countryName>Jamaica</countryName>\n        <fcl>P</fcl>\n        <fcode>PPLC</fcode>\n    </geoname>\n</geonames>\n"
+```
+
+``` julia
+using GeoNamesAPI, XML
+x2 = search(q="paris", maxRows=2)
+# LazyNode (depth=0) Document
+collect(x2)
+# 42-element Vector{LazyNode}:
+#  LazyNode (depth=1) Declaration <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+#  LazyNode (depth=1) Element <geonames style="MEDIUM">
+#  LazyNode (depth=2) Element <totalResultsCount>
+#  LazyNode (depth=3) Text "50623"
+#  LazyNode (depth=2) Element <geoname>
+#  LazyNode (depth=3) Element <toponymName>
+#  LazyNode (depth=4) Text "Paris"
+#  LazyNode (depth=3) Element <name>
+#  LazyNode (depth=4) Text "Paris"
+#  LazyNode (depth=3) Element <lat>
+#  LazyNode (depth=4) Text "48.85341"
+#  LazyNode (depth=3) Element <lng>
+#  LazyNode (depth=4) Text "2.3488"
+#  LazyNode (depth=3) Element <geonameId>
+#  LazyNode (depth=4) Text "2988507"
+#  LazyNode (depth=3) Element <countryCode>
+#  LazyNode (depth=4) Text "FR"
+#  LazyNode (depth=3) Element <countryName>
+#  LazyNode (depth=4) Text "France"
+#  LazyNode (depth=3) Element <fcl>
+#  LazyNode (depth=4) Text "P"
+#  LazyNode (depth=3) Element <fcode>
+#  LazyNode (depth=4) Text "PPLC"
+#  LazyNode (depth=2) Element <geoname>
+#  LazyNode (depth=3) Element <toponymName>
+#  LazyNode (depth=4) Text "Kingston"
+#  LazyNode (depth=3) Element <name>
+#  LazyNode (depth=4) Text "Kingston"
+#  LazyNode (depth=3) Element <lat>
+#  LazyNode (depth=4) Text "17.99702"
+#  LazyNode (depth=3) Element <lng>
+#  LazyNode (depth=4) Text "-76.79358"
+#  LazyNode (depth=3) Element <geonameId>
+#  LazyNode (depth=4) Text "3489854"
+#  LazyNode (depth=3) Element <countryCode>
+#  LazyNode (depth=4) Text "JM"
+#  LazyNode (depth=3) Element <countryName>
+#  LazyNode (depth=4) Text "Jamaica"
+#  LazyNode (depth=3) Element <fcl>
+#  LazyNode (depth=4) Text "P"
+#  LazyNode (depth=3) Element <fcode>
+#  LazyNode (depth=4) Text "PPLC"
+```
+
+It uses the LazyNode, but you can aosl use the XML.Node type:
+
+``` julia
+global GeoNamesAPI.rettype = XML.Node(1)
+x3 = search(q="paris", maxRows=2)
+# Node Document (2 children)
+```
+
+Getting back to LazyNodes is a bit combersome:
+
+``` julia
+GeoNamesAPI.rettype = XML.LazyNode(XML.Raw([UInt8(1)]))
+search(q="paris", maxRows=2)
+# LazyNode (depth=0) Document
+```
+
+You can still get the xml string:
+
+``` julia
+search("",q="paris", maxRows=2, type="xml")
+# "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<geonames style=\"MEDIUM\">\n    <totalResultsCount>50623</totalResultsCount>\n    <geoname>\n        <toponymName>Paris</toponymName>\n        <name>Paris</name>\n        <lat>48.85341</lat>\n        <lng>2.3488</lng>\n        <geonameId>2988507</geonameId>\n        <countryCode>FR</countryCode>\n        <countryName>France</countryName>\n        <fcl>P</fcl>\n        <fcode>PPLC</fcode>\n    </geoname>\n    <geoname>\n        <toponymName>Kingston</toponymName>\n        <name>Kingston</name>\n        <lat>17.99702</lat>\n        <lng>-76.79358</lng>\n        <geonameId>3489854</geonameId>\n        <countryCode>JM</countryCode>\n        <countryName>Jamaica</countryName>\n        <fcl>P</fcl>\n        <fcode>PPLC</fcode>\n    </geoname>\n</geonames>\n"
+
+```

@@ -9,12 +9,18 @@ JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 
 [weakdeps]
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
+XML = "72c71f33-b9b6-44de-8c94-c961784809e2"
 
 [extensions]
 DataFramesExt = "DataFrames"
+EzXMLExt = "EzXML"
+XMLExt = "XML"
 
 [compat]
 DataFrames = "1.8.1"
+EzXML = "1.2.3"
 HTTP = "1.11.0"
 JSON = "1.5.0"
+XML = "0.3.8"
 julia = "1.10"
