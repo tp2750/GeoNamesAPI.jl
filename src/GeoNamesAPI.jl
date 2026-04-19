@@ -1,10 +1,10 @@
 module GeoNamesAPI
 
-import HTTP, JSON, DataFrames
+import HTTP, JSON
 
 export search
 
-rettype = "JSON"
+global rettype = JSON.Object()
 
 """
        search(type=GeoNamesAPI.rettype ; kwargs...)
@@ -77,18 +77,11 @@ To set the default to "DataFrame" set the module variable `GeoNames.rettype`
 GeoNames.rettype="DataFrame"
 ```       
 """
-function search(type=rettype ; kwargs...)
+function search(::String ; kwargs...)
     username=get(ENV,"GEONAMES_USER","")
     url = "http://api.geonames.org/search"
     @debug kwargs
     params = mk_params(;kwargs)
-    ## Add type=json unless we explicitly set type.
-    ## If type != json always return String
-    if :type in keys(kwargs) && kwargs[:type] != "json"
-        type = "String"
-    else
-        params = "$params&type=json"
-    end
     if :username in keys(kwargs)
         username = kwargs[:username]
     end
@@ -97,10 +90,7 @@ function search(type=rettype ; kwargs...)
     @debug(uri)
     r1 = HTTP.get(uri)
     b1 = r1.body
-    lowercase(type) == lowercase("String") && return String(b1)
-    lowercase(type) == lowercase("JSON") && return JSON.parse(b1)
-    lowercase(type) == lowercase("DataFrame") && return vcat(DataFrames.DataFrame.(JSON.parse(b1).geonames)..., cols=:union)
-    error("Type $type not implemented")
+    String(b1)
 end
 
 function mk_params(;kwargs...)
@@ -111,6 +101,16 @@ function mk_params(;kwargs...)
     join(params, "&")
 end
 
-search(::Type{JSON}, username=get(ENV,"GEONAMES_USER",""); kwargs...) = JSON.parse(search(String, username; kwargs...))
+function search(::JSON.Object; kwargs...)
+    b1 = search("" ; kwargs..., type="json")
+    JSON.parse(b1)
+end
+
+function search(; kwargs...)
+    search(rettype; kwargs...)
+end
+
+function ret_string() global GeoNamesAPI.rettype = "" end
+function ret_json()   global GeoNamesAPI.rettype =  JSON.Object() end
 
 end
