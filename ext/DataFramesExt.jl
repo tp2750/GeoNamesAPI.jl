@@ -8,7 +8,7 @@ end
 
 function GeoNamesAPI.search(::DataFrame ; kwargs...)
     b1 = GeoNamesAPI.search(JSON.Object(); kwargs...)
-    @info "totalResultsCount = $(b1.totalResultsCount). Use keywords  `startRow` and `maxRows` to paginate result"
+    @info "totalResultsCount = $(b1.totalResultsCount). Use keywords `startRow` and `maxRows` (max 1000) to paginate results"
     reduce(vcat, DataFrames.DataFrame.(b1.geonames), cols=:union)
 end
 
