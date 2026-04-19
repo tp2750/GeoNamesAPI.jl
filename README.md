@@ -72,6 +72,13 @@ search(q="paris", maxRows=2)
 #   "geonames"          => Any[Object{String, Any}("adminCode1"=>"11", "lng"=>"2.3488", "geonameId"=>2988507, "toponymName"=>"Paris", "countryId"=>"3017382", "fcl"=>"P", "population"=>2138551, "countryCode"=>"FR", "name"=>"Paris", "fclName"=>"city, village,…
 ```
 
+And back to DataFrame:
+
+``` julia
+julia> using DataFrames
+julia> GeoNamesAPI.rettype = DataFrames.DataFrame()
+```
+
 There is also package extensions for [XML](https://github.com/JuliaComputing/XML.jl/) and [EzXML](https://github.com/JuliaIO/EzXML.jl)
 
 ``` julia
@@ -135,7 +142,7 @@ collect(x2)
 It uses the LazyNode, but you can aosl use the XML.Node type:
 
 ``` julia
-global GeoNamesAPI.rettype = XML.Node(1)
+GeoNamesAPI.rettype = XML.Node(1)
 x3 = search(q="paris", maxRows=2)
 # Node Document (2 children)
 ```
