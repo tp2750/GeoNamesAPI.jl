@@ -25,7 +25,7 @@ jobs:
         version:
           - '1.10'
           - '1.12'
-          - 'pre'
+#           - 'pre'
         os:
           - ubuntu-latest
         arch:
@@ -39,6 +39,8 @@ jobs:
       - uses: julia-actions/cache@v2
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-runtest@v1
+        env:
+          GEONAMES_USER: ${{ secrets.GEONAMES_USER }}
   docs:
     name: Documentation
     runs-on: ubuntu-latest

@@ -2,3 +2,8 @@
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
 JET = "c3a54625-cd67-489e-a8e7-0a5a0ff4e31b"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
+XML = "72c71f33-b9b6-44de-8c94-c961784809e2"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
