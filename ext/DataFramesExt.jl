@@ -2,8 +2,10 @@ module DataFramesExt
 
 using GeoNamesAPI, DataFrames, JSON
 
+
 function __init__()
-    global GeoNamesAPI.rettype = DataFrame()
+    global GeoNamesAPI.ret_dict["dataframe"] = DataFrames.DataFrame()
+    global GeoNamesAPI.rettype = DataFrames.DataFrame()
 end
 
 function GeoNamesAPI.search(::DataFrame ; kwargs...)

@@ -5,6 +5,9 @@ import HTTP, JSON
 export search
 
 global rettype = JSON.Object()
+global ret_dict = Dict("json" => JSON.Object(),
+                       "string" => "",
+                       )
 
 """
        search(type=GeoNamesAPI.rettype ; kwargs...)
@@ -180,7 +183,7 @@ function mk_params(;kwargs...)
     join(params, "&")
 end
 
-function search(::JSON.Object; kwargs...)
+function search(::T; kwargs...) where T <: JSON.Object
     b1 = search("" ; kwargs..., type="json")
     JSON.parse(b1)
 end
@@ -189,5 +192,8 @@ function search(; kwargs...)
     search(rettype; kwargs...)
 end
 
+function set_type(type)
+    global GeoNamesAPI.rettype = get(ret_dict, lowercase(type), "")
+end
 
 end

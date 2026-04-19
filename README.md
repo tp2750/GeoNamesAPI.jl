@@ -76,7 +76,7 @@ And back to DataFrame:
 
 ``` julia
 julia> using DataFrames
-julia> GeoNamesAPI.rettype = DataFrames.DataFrame()
+julia> GeoNamesAPI.set_type("dataframe")
 ```
 
 There is also package extensions for [XML](https://github.com/JuliaComputing/XML.jl/) and [EzXML](https://github.com/JuliaIO/EzXML.jl)
@@ -142,7 +142,7 @@ collect(x2)
 It uses the LazyNode, but you can aosl use the XML.Node type:
 
 ``` julia
-GeoNamesAPI.rettype = XML.Node(1)
+GeoNamesAPI.set_type("xml")
 x3 = search(q="paris", maxRows=2)
 # Node Document (2 children)
 ```
@@ -150,7 +150,8 @@ x3 = search(q="paris", maxRows=2)
 Getting back to LazyNodes is a bit combersome:
 
 ``` julia
-GeoNamesAPI.rettype = XML.LazyNode(XML.Raw([UInt8(1)]))
+GeoNamesAPI.set_type("lazy-xml")
+# LazyNode (depth=0) Document
 search(q="paris", maxRows=2)
 # LazyNode (depth=0) Document
 ```

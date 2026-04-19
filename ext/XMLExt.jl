@@ -2,8 +2,11 @@ module XMLExt
 
 using GeoNamesAPI, XML
 
+
+
 function __init__()
-    # global GeoNamesAPI.rettype = XML.Node(1)
+    global GeoNamesAPI.ret_dict["xml"] = XML.Node(1)
+    global GeoNamesAPI.ret_dict["lazy-xml"] = XML.LazyNode(XML.Raw([UInt8(1)]))
     global GeoNamesAPI.rettype = XML.LazyNode(XML.Raw([UInt8(1)]))
 end
 

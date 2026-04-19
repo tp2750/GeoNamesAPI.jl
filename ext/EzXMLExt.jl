@@ -2,7 +2,9 @@ module EzXMLExt
 
 using GeoNamesAPI, EzXML
 
+
 function __init__()
+    global GeoNamesAPI.ret_dict["ezxml"] = EzXML.XMLDocument()
     global GeoNamesAPI.rettype = EzXML.XMLDocument()
 end
 
