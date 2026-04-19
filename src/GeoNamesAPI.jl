@@ -80,14 +80,14 @@ GeoNames.rettype="DataFrame"
 function search(::String ; kwargs...)
     username=get(ENV,"GEONAMES_USER","")
     url = "http://api.geonames.org/search"
-    @debug kwargs
+    @debug @show kwargs
     params = mk_params(;kwargs)
     if :username in keys(kwargs)
         username = kwargs[:username]
     end
     username == "" && error("You need to give GeoNames user. See README for details.")
     uri = "$url?$params&username=$username"
-    @debug(uri)
+    @debug uri
     r1 = HTTP.get(uri)
     b1 = r1.body
     String(b1)
@@ -95,7 +95,7 @@ end
 
 function mk_params(;kwargs...)
     params = String[]
-    foreach(kwargs) do (k, v)
+    foreach(kwargs[:kwargs]) do (k, v)
         push!(params,"$(HTTP.escapeuri(k))=$(HTTP.escapeuri(v))")
     end
     join(params, "&")
@@ -110,7 +110,5 @@ function search(; kwargs...)
     search(rettype; kwargs...)
 end
 
-function ret_string() global GeoNamesAPI.rettype = "" end
-function ret_json()   global GeoNamesAPI.rettype =  JSON.Object() end
 
 end
