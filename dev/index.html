@@ -1,38 +1,130 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · GeoNamesAPI.jl</title><meta name="title" content="Home · GeoNamesAPI.jl"/><meta property="og:title" content="Home · GeoNamesAPI.jl"/><meta property="twitter:title" content="Home · GeoNamesAPI.jl"/><meta name="description" content="Documentation for GeoNamesAPI.jl."/><meta property="og:description" content="Documentation for GeoNamesAPI.jl."/><meta property="twitter:description" content="Documentation for GeoNamesAPI.jl."/><meta property="og:url" content="https://tp2750.github.io/GeoNamesAPI.jl/"/><meta property="twitter:url" content="https://tp2750.github.io/GeoNamesAPI.jl/"/><link rel="canonical" href="https://tp2750.github.io/GeoNamesAPI.jl/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>GeoNamesAPI.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/tp2750/GeoNamesAPI.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/tp2750/GeoNamesAPI.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="GeoNamesAPI"><a class="docs-heading-anchor" href="#GeoNamesAPI">GeoNamesAPI</a><a id="GeoNamesAPI-1"></a><a class="docs-heading-anchor-permalink" href="#GeoNamesAPI" title="Permalink"></a></h1><p>Documentation for <a href="https://github.com/tp2750/GeoNamesAPI.jl">GeoNamesAPI</a>.</p><ul><li><a href="#GeoNamesAPI.search"><code>GeoNamesAPI.search</code></a></li></ul><article><details class="docstring" open="true"><summary id="GeoNamesAPI.search"><a class="docstring-binding" href="#GeoNamesAPI.search"><code>GeoNamesAPI.search</code></a> — <span class="docstring-category">Function</span></summary><section><div><pre><code class="language-julia hljs">   search(type=GeoNamesAPI.rettype ; kwargs...)</code></pre><p>Searches the <a href="https://www.geonames.org/">GeoNames</a> <a href="https://www.geonames.org/export/web-services.html">web service</a>.       </p><p>You need to <a href="https://www.geonames.org/login">register a username</a> with GeoNames to use the service. After you create the username, you need at activate it on the <a href="https://www.geonames.org/manageaccount">account page</a>. It is recommended to store the username as an environment variable in your <code>~/.julia/config/startup.jl</code> file:</p><p>ENV[&quot;GEONAMES_USER&quot;]=&quot;yourusername&quot;</p><pre><code class="language-julia hljs">using GeoNamesAPI
-search(q=&quot;paris&quot;, maxRows=10)
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · GeoNamesAPI.jl</title><meta name="title" content="Home · GeoNamesAPI.jl"/><meta property="og:title" content="Home · GeoNamesAPI.jl"/><meta property="twitter:title" content="Home · GeoNamesAPI.jl"/><meta name="description" content="Documentation for GeoNamesAPI.jl."/><meta property="og:description" content="Documentation for GeoNamesAPI.jl."/><meta property="twitter:description" content="Documentation for GeoNamesAPI.jl."/><meta property="og:url" content="https://tp2750.github.io/GeoNamesAPI.jl/"/><meta property="twitter:url" content="https://tp2750.github.io/GeoNamesAPI.jl/"/><link rel="canonical" href="https://tp2750.github.io/GeoNamesAPI.jl/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="search_index.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>GeoNamesAPI.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/tp2750/GeoNamesAPI.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/tp2750/GeoNamesAPI.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="GeoNamesAPI"><a class="docs-heading-anchor" href="#GeoNamesAPI">GeoNamesAPI</a><a id="GeoNamesAPI-1"></a><a class="docs-heading-anchor-permalink" href="#GeoNamesAPI" title="Permalink"></a></h1><p>Documentation for <a href="https://github.com/tp2750/GeoNamesAPI.jl">GeoNamesAPI</a>.</p><ul><li><a href="#GeoNamesAPI.search-Tuple{String}"><code>GeoNamesAPI.search</code></a></li></ul><article><details class="docstring" open="true"><summary id="GeoNamesAPI.search-Tuple{String}"><a class="docstring-binding" href="#GeoNamesAPI.search-Tuple{String}"><code>GeoNamesAPI.search</code></a> — <span class="docstring-category">Method</span></summary><section><div><pre><code class="language-julia hljs">   search(type=GeoNamesAPI.rettype ; kwargs...)</code></pre><p>Searches the <a href="https://www.geonames.org/">GeoNames</a> <a href="https://www.geonames.org/export/web-services.html">web service</a>.        You need to <a href="https://www.geonames.org/login">register a username</a> with GeoNames to use the service. After you create the username, you need at activate it on the <a href="https://www.geonames.org/manageaccount">account page</a>.</p><p>It is recommended to store the username as an environment variable in your <code>~/.julia/config/startup.jl</code> file:</p><pre><code class="language-julia hljs">ENV[&quot;GEONAMES_USER&quot;]=&quot;yourusername&quot;</code></pre><p>Then you can access the service using the API as described in GeoNames <a href="https://www.geonames.org/export/geonames-search.html">documentation</a>.</p><pre><code class="language-julia hljs">using GeoNamesAPI
+search(q=&quot;paris&quot;, maxRows=2)
 # JSON.Object{String, Any} with 2 entries:
-#   &quot;totalResultsCount&quot; =&gt; 13412672
-#   &quot;geonames&quot;          =&gt; Any[Object{String, Any}(&quot;adminCode1&quot;=&gt;&quot;11&quot;, &quot;lng&quot;=&gt;&quot;47.51667&quot;, &quot;geonameId&quot;=&gt;1062605, &quot;toponymName&quot;=&gt;&quot;Mahamasina&quot;, &quot;…</code></pre><p>If you do not store you username in the environment, you can give it as argument to the function</p><pre><code class="language-julia hljs">search(q=&quot;paris&quot;, maxRows=10, username=&quot;yourusername&quot;)</code></pre><p>Results are returned as JSON by default. If you want to parse the result yourself, you can get it as String</p><pre><code class="language-julia hljs">search(&quot;String&quot;,q=&quot;paris&quot;, maxRows=10)
-# &quot;{&quot;totalResultsCount&quot;:13412672,&quot;geonames&quot;:[{&quot;adminCode1&quot;:&quot;11&quot;,&quot;lng&quot;:&quot;47.51667&quot;,&quot;geonameId&quot;:1062605,&quot;toponymName&quot;:&quot;Mahamasina&quot;,&quot;countryId&quot;:&quot;1062947&quot;,&quot;fcl&quot;:&quot;P&quot;,&quot;population&quot;:0,&quot;countryCode&quot;:&quot;MG&quot;,&quot;name&quot;:&quot;Mahamasina&quot;,&quot;fclName&quot;:&quot;city, village,...&quot;,&quot;countryName&quot;:&quot;Madagascar&quot;,&quot;fcodeName&quot;:&quot;section of populated place&quot;,&quot;adminName1&quot;:&quot;Analamanga&quot;,&quot;lat&quot;:&quot;-18.9&quot;,&quot;fcode&quot;:&quot;PPLX&quot;},{&quot;adminCode1&quot;:&quot;21&quot;,&quot;lng&quot;:&quot;46.9&quot;,&quot;geonameId&quot;:1062606,&quot;toponymName&quot;:&quot;Mahamasina&quot;,&quot;countryId&quot;:&quot;1062947&quot;,&quot;fcl&quot;:&quot;P&quot;,&quot;populat&quot; ⋯ 2169 bytes ⋯ &quot;e&quot;:&quot;MG&quot;,&quot;name&quot;:&quot;Mahamanaha&quot;,&quot;fclName&quot;:&quot;city, village,...&quot;,&quot;countryName&quot;:&quot;Madagascar&quot;,&quot;fcodeName&quot;:&quot;populated place&quot;,&quot;adminName1&quot;:&quot;Alaotra Mangoro&quot;,&quot;lat&quot;:&quot;-18.91667&quot;,&quot;fcode&quot;:&quot;PPL&quot;},{&quot;adminCode1&quot;:&quot;53&quot;,&quot;lng&quot;:&quot;46.13333&quot;,&quot;geonameId&quot;:1062614,&quot;toponymName&quot;:&quot;Mahamana&quot;,&quot;countryId&quot;:&quot;1062947&quot;,&quot;fcl&quot;:&quot;P&quot;,&quot;population&quot;:0,&quot;countryCode&quot;:&quot;MG&quot;,&quot;name&quot;:&quot;Mahamana&quot;,&quot;fclName&quot;:&quot;city, village,...&quot;,&quot;countryName&quot;:&quot;Madagascar&quot;,&quot;fcodeName&quot;:&quot;populated place&quot;,&quot;adminName1&quot;:&quot;Anosy&quot;,&quot;lat&quot;:&quot;-23.35&quot;,&quot;fcode&quot;:&quot;PPL&quot;}]}&quot;
-</code></pre><p>The API can also return xml or rdf (selected by keyword &quot;type&quot;). If that is set, the result is always returned as String</p><pre><code class="language-julia hljs">search(q=&quot;paris&quot;, maxRows=10, type=&quot;rdf&quot;)
+#   &quot;totalResultsCount&quot; =&gt; 50623
+#   &quot;geonames&quot;          =&gt; Any[Object{String, Any}(&quot;adminCode1&quot;=&gt;&quot;11&quot;, &quot;lng&quot;=&gt;&quot;2.3488&quot;, &quot;geonameId&quot;=&gt;2988507, &quot;toponymName&quot;=&gt;&quot;Paris&quot;, &quot;countryId&quot;=&gt;&quot;3017382&quot;, &quot;fcl&quot;=&gt;&quot;P&quot;, &quot;population&quot;=&gt;2138551, &quot;countryCode&quot;=&gt;&quot;FR&quot;, &quot;name&quot;=&gt;&quot;Paris&quot;, &quot;fclName&quot;=&gt;&quot;city, village,…</code></pre><p>If you do not store you username in the environment, you can give it as argument to the function</p><pre><code class="language-julia hljs">search(q=&quot;paris&quot;, maxRows=2, username=&quot;yourusername&quot;)</code></pre><p>Results are returned as JSON by default. If you want to parse the result yourself, you can get it as String by giving a string as the first argument (dispaches on first argument). You also need to specify the &quot;type&quot; keyword, as the default type from GeoNames is &quot;xml&quot;. The options are <code>xml</code>, <code>json</code>, <code>rdf</code>, see https://www.geonames.org/export/geonames-search.html</p><pre><code class="language-julia hljs">search(&quot;&quot;,q=&quot;paris&quot;, maxRows=2, type=&quot;json&quot;)
+# &quot;{&quot;totalResultsCount&quot;:50623,&quot;geonames&quot;:[{&quot;adminCode1&quot;:&quot;11&quot;,&quot;lng&quot;:&quot;2.3488&quot;,&quot;geonameId&quot;:2988507,&quot;toponymName&quot;:&quot;Paris&quot;,&quot;countryId&quot;:&quot;3017382&quot;,&quot;fcl&quot;:&quot;P&quot;,&quot;population&quot;:2138551,&quot;countryCode&quot;:&quot;FR&quot;,&quot;name&quot;:&quot;Paris&quot;,&quot;fclName&quot;:&quot;city, village,...&quot;,&quot;adminCodes1&quot;:{&quot;ISO3166_2&quot;:&quot;IDF&quot;},&quot;countryName&quot;:&quot;France&quot;,&quot;fcodeName&quot;:&quot;capital of a political entity&quot;,&quot;adminName1&quot;:&quot;Île-de-France&quot;,&quot;lat&quot;:&quot;48.85341&quot;,&quot;fcode&quot;:&quot;PPLC&quot;},{&quot;adminCode1&quot;:&quot;17&quot;,&quot;lng&quot;:&quot;-76.79358&quot;,&quot;geonameId&quot;:3489854,&quot;toponymName&quot;:&quot;Kingston&quot;,&quot;countryId&quot;:&quot;3489940&quot;,&quot;fcl&quot;:&quot;P&quot;,&quot;population&quot;:937700,&quot;countryCode&quot;:&quot;JM&quot;,&quot;name&quot;:&quot;Kingston&quot;,&quot;fclName&quot;:&quot;city, village,...&quot;,&quot;adminCodes1&quot;:{&quot;ISO3166_2&quot;:&quot;01&quot;},&quot;countryName&quot;:&quot;Jamaica&quot;,&quot;fcodeName&quot;:&quot;capital of a political entity&quot;,&quot;adminName1&quot;:&quot;Kingston&quot;,&quot;lat&quot;:&quot;17.99702&quot;,&quot;fcode&quot;:&quot;PPLC&quot;}]}&quot;</code></pre><p>There is a package extension to return <a href="https://github.com/JuliaData/DataFrames.jl">DataFrames</a></p><pre><code class="language-julia hljs">using DataFrames
+search(q=&quot;paris&quot;, maxRows=2)
+# [ Info: totalResultsCount = 50623. Use keywords `startRow` and `maxRows` (max 1000) to paginate results
+# 2×16 DataFrame
+#  Row │ adminCode1  lng        geonameId  toponymName  countryId  fcl     population  countryCode  name      fclName            adminCodes1                        countryName  fcodeName                      adminName1     lat       fcode  
+#      │ String      String     Int64      String       String     String  Int64       String       String    String             Object…                            String       String                         String         String    String 
+# ─────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#    1 │ 11          2.3488       2988507  Paris        3017382    P          2138551  FR           Paris     city, village,...  Object{String, Any}(&quot;ISO3166_2&quot;=…  France       capital of a political entity  Île-de-France  48.85341  PPLC
+#    2 │ 17          -76.79358    3489854  Kingston     3489940    P           937700  JM           Kingston  city, village,...  Object{String, Any}(&quot;ISO3166_2&quot;=…  Jamaica      capital of a political entity  Kingston       17.99702  PPLC
+</code></pre><p>When loading DataFrames, the default return type is set to <code>DataFrame</code>.  To set it back to JSON set the module variable <code>GeoNamesAPI.rettype</code></p><pre><code class="language-julia hljs">using JSON
+GeoNamesAPI.rettype = JSON.Object()
+
+search(q=&quot;paris&quot;, maxRows=2)
+# JSON.Object{String, Any} with 2 entries:
+#   &quot;totalResultsCount&quot; =&gt; 50623
+#   &quot;geonames&quot;          =&gt; Any[Object{String, Any}(&quot;adminCode1&quot;=&gt;&quot;11&quot;, &quot;lng&quot;=&gt;&quot;2.3488&quot;, &quot;geonameId&quot;=&gt;2988507, &quot;toponymName&quot;=&gt;&quot;Paris&quot;, &quot;countryId&quot;=&gt;&quot;3017382&quot;, &quot;fcl&quot;=&gt;&quot;P&quot;, &quot;population&quot;=&gt;2138551, &quot;countryCode&quot;=&gt;&quot;FR&quot;, &quot;name&quot;=&gt;&quot;Paris&quot;, &quot;fclName&quot;=&gt;&quot;city, village,…</code></pre><p>There is also package extensions for <a href="https://github.com/JuliaComputing/XML.jl/">XML</a> and <a href="https://github.com/JuliaIO/EzXML.jl">EzXML</a></p><pre><code class="language-julia hljs">using GeoNamesAPI, EzXML
+x1 = search(q=&quot;paris&quot;, maxRows=2)
+# EzXML.Document(EzXML.Node(&lt;DOCUMENT_NODE@0x0000000001d66290&gt;))
+string(x1)
 # &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-&lt;rdf:RDF xmlns:cc=&quot;http://creativecommons.org/ns#&quot; xmlns:dcterms=&quot;http://purl.org/dc/terms/&quot; xmlns:foaf=&quot;http://xmlns.com/foaf/0.1/&quot; xmlns:gn=&quot;http://www.geonames.org/ontology#&quot; xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot; xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; xmlns:wgs84_pos=&quot;http://www.w3.org/2003/01/geo/wgs84_pos#&quot;&gt;
-    &lt;gn:Feature rdf:about=&quot;https://sws.geo&quot; ⋯ 7064 bytes ⋯ &quot;n:featureCode rdf:resource=&quot;https://www.geonames.org/ontology#P.PPL&quot;/&gt;
-        &lt;gn:countryCode&gt;MG&lt;/gn:countryCode&gt;
-        &lt;wgs84_pos:lat&gt;-23.35&lt;/wgs84_pos:lat&gt;
-        &lt;wgs84_pos:long&gt;46.13333&lt;/wgs84_pos:long&gt;
-        &lt;gn:parentCountry rdf:resource=&quot;https://sws.geonames.org/1062947/&quot;/&gt;
-        &lt;gn:nearbyFeatures rdf:resource=&quot;https://sws.geonames.org/1062614/nearby.rdf&quot;/&gt;
-        &lt;gn:locationMap rdf:resource=&quot;https://www.geonames.org/1062614/mahamana.html&quot;/&gt;
-    &lt;/gn:Feature&gt;
-&lt;/rdf:RDF&gt;
+&lt;geonames style=&quot;MEDIUM&quot;&gt;
+    &lt;totalResultsCount&gt;50623&lt;/totalResultsCount&gt;
+    &lt;geoname&gt;
+        &lt;toponymName&gt;Paris&lt;/toponymName&gt;
+        &lt;name&gt;Paris&lt;/name&gt;
+        &lt;lat&gt;48.85341&lt;/lat&gt;
+        &lt;lng&gt;2.3488&lt;/lng&gt;
+        &lt;geonameId&gt;2988507&lt;/geonameId&gt;
+        &lt;countryCode&gt;FR&lt;/countryCode&gt;
+        &lt;countryName&gt;France&lt;/countryName&gt;
+        &lt;fcl&gt;P&lt;/fcl&gt;
+        &lt;fcode&gt;PPLC&lt;/fcode&gt;
+    &lt;/geoname&gt;
+    &lt;geoname&gt;
+        &lt;toponymName&gt;Kingston&lt;/toponymName&gt;
+        &lt;name&gt;Kingston&lt;/name&gt;
+        &lt;lat&gt;17.99702&lt;/lat&gt;
+        &lt;lng&gt;-76.79358&lt;/lng&gt;
+        &lt;geonameId&gt;3489854&lt;/geonameId&gt;
+        &lt;countryCode&gt;JM&lt;/countryCode&gt;
+        &lt;countryName&gt;Jamaica&lt;/countryName&gt;
+        &lt;fcl&gt;P&lt;/fcl&gt;
+        &lt;fcode&gt;PPLC&lt;/fcode&gt;
+    &lt;/geoname&gt;
+&lt;/geonames&gt;
+&quot;</code></pre><pre><code class="language-julia hljs">using GeoNamesAPI, XML
+x2 = search(q=&quot;paris&quot;, maxRows=2)
+# LazyNode (depth=0) Document
+collect(x2)
+# 42-element Vector{LazyNode}:
+#  LazyNode (depth=1) Declaration &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+#  LazyNode (depth=1) Element &lt;geonames style=&quot;MEDIUM&quot;&gt;
+#  LazyNode (depth=2) Element &lt;totalResultsCount&gt;
+#  LazyNode (depth=3) Text &quot;50623&quot;
+#  LazyNode (depth=2) Element &lt;geoname&gt;
+#  LazyNode (depth=3) Element &lt;toponymName&gt;
+#  LazyNode (depth=4) Text &quot;Paris&quot;
+#  LazyNode (depth=3) Element &lt;name&gt;
+#  LazyNode (depth=4) Text &quot;Paris&quot;
+#  LazyNode (depth=3) Element &lt;lat&gt;
+#  LazyNode (depth=4) Text &quot;48.85341&quot;
+#  LazyNode (depth=3) Element &lt;lng&gt;
+#  LazyNode (depth=4) Text &quot;2.3488&quot;
+#  LazyNode (depth=3) Element &lt;geonameId&gt;
+#  LazyNode (depth=4) Text &quot;2988507&quot;
+#  LazyNode (depth=3) Element &lt;countryCode&gt;
+#  LazyNode (depth=4) Text &quot;FR&quot;
+#  LazyNode (depth=3) Element &lt;countryName&gt;
+#  LazyNode (depth=4) Text &quot;France&quot;
+#  LazyNode (depth=3) Element &lt;fcl&gt;
+#  LazyNode (depth=4) Text &quot;P&quot;
+#  LazyNode (depth=3) Element &lt;fcode&gt;
+#  LazyNode (depth=4) Text &quot;PPLC&quot;
+#  LazyNode (depth=2) Element &lt;geoname&gt;
+#  LazyNode (depth=3) Element &lt;toponymName&gt;
+#  LazyNode (depth=4) Text &quot;Kingston&quot;
+#  LazyNode (depth=3) Element &lt;name&gt;
+#  LazyNode (depth=4) Text &quot;Kingston&quot;
+#  LazyNode (depth=3) Element &lt;lat&gt;
+#  LazyNode (depth=4) Text &quot;17.99702&quot;
+#  LazyNode (depth=3) Element &lt;lng&gt;
+#  LazyNode (depth=4) Text &quot;-76.79358&quot;
+#  LazyNode (depth=3) Element &lt;geonameId&gt;
+#  LazyNode (depth=4) Text &quot;3489854&quot;
+#  LazyNode (depth=3) Element &lt;countryCode&gt;
+#  LazyNode (depth=4) Text &quot;JM&quot;
+#  LazyNode (depth=3) Element &lt;countryName&gt;
+#  LazyNode (depth=4) Text &quot;Jamaica&quot;
+#  LazyNode (depth=3) Element &lt;fcl&gt;
+#  LazyNode (depth=4) Text &quot;P&quot;
+#  LazyNode (depth=3) Element &lt;fcode&gt;
+#  LazyNode (depth=4) Text &quot;PPLC&quot;</code></pre><p>It uses the LazyNode, but you can aosl use the XML.Node type:</p><pre><code class="language-julia hljs">global GeoNamesAPI.rettype = XML.Node(1)
+x3 = search(q=&quot;paris&quot;, maxRows=2)
+# Node Document (2 children)</code></pre><p>Getting back to LazyNodes is a bit combersome:</p><pre><code class="language-julia hljs">GeoNamesAPI.rettype = XML.LazyNode(XML.Raw([UInt8(1)]))
+search(q=&quot;paris&quot;, maxRows=2)
+# LazyNode (depth=0) Document</code></pre><p>You can still get the xml string:</p><pre><code class="language-julia hljs">search(&quot;&quot;,q=&quot;paris&quot;, maxRows=2, type=&quot;xml&quot;)
+# &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;geonames style=&quot;MEDIUM&quot;&gt;
+    &lt;totalResultsCount&gt;50623&lt;/totalResultsCount&gt;
+    &lt;geoname&gt;
+        &lt;toponymName&gt;Paris&lt;/toponymName&gt;
+        &lt;name&gt;Paris&lt;/name&gt;
+        &lt;lat&gt;48.85341&lt;/lat&gt;
+        &lt;lng&gt;2.3488&lt;/lng&gt;
+        &lt;geonameId&gt;2988507&lt;/geonameId&gt;
+        &lt;countryCode&gt;FR&lt;/countryCode&gt;
+        &lt;countryName&gt;France&lt;/countryName&gt;
+        &lt;fcl&gt;P&lt;/fcl&gt;
+        &lt;fcode&gt;PPLC&lt;/fcode&gt;
+    &lt;/geoname&gt;
+    &lt;geoname&gt;
+        &lt;toponymName&gt;Kingston&lt;/toponymName&gt;
+        &lt;name&gt;Kingston&lt;/name&gt;
+        &lt;lat&gt;17.99702&lt;/lat&gt;
+        &lt;lng&gt;-76.79358&lt;/lng&gt;
+        &lt;geonameId&gt;3489854&lt;/geonameId&gt;
+        &lt;countryCode&gt;JM&lt;/countryCode&gt;
+        &lt;countryName&gt;Jamaica&lt;/countryName&gt;
+        &lt;fcl&gt;P&lt;/fcl&gt;
+        &lt;fcode&gt;PPLC&lt;/fcode&gt;
+    &lt;/geoname&gt;
+&lt;/geonames&gt;
 &quot;
-</code></pre><p>We can also parse the result to a data-frame</p><pre><code class="language-julia hljs">using DataFrames
-search(&quot;DataFrame&quot;,q=&quot;paris&quot;, maxRows=10)
-# 10×15 DataFrame
-#  Row │ adminCode1  lng       geonameId  toponymName      countryId  fcl     population  countryCode  name             fclName               ⋯
-#      │ String      String    Int64      String           String     String  Int64       String       String           String                ⋯
-# ─────┼───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-#    1 │ 11          47.51667    1062605  Mahamasina       1062947    P                0  MG           Mahamasina       city, village,...     ⋯
-#    2 │ 21          46.9        1062606  Mahamasina       1062947    P                0  MG           Mahamasina       city, village,...
-#    3 │ 13          46.26667    1062607  Mahamasina       1062947    P                0  MG           Mahamasina       city, village,...
-#    4 │ 13          47.2        1062608  Mahamasina       1062947    T                0  MG           Mahamasina       mountain,hill,rock,..
-#    5 │ 01          48.9        1062609  Baie Mahamanina  1062947    H                0  MG           Baie Mahamanina  stream, lake, ...     ⋯
-#    6 │ 25          47.2        1062610  Mahamanina       1062947    P                0  MG           Mahamanina       city, village,...
-#    7 │ 72          49.91667    1062611  Mahamanina       1062947    P                0  MG           Mahamanina       city, village,...
-#    8 │ 42          47.61667    1062612  Mahamanina       1062947    T                0  MG           Mahamanina       mountain,hill,rock,..
-#    9 │ 33          48.28333    1062613  Mahamanaha       1062947    P                0  MG           Mahamanaha       city, village,...     ⋯
-#   10 │ 53          46.13333    1062614  Mahamana         1062947    P                0  MG           Mahamana         city, village,...
-#                                                                                                                             6 columns omitted
-</code></pre><p>To set the default to &quot;DataFrame&quot; set the module variable <code>GeoNames.rettype</code></p><pre><code class="language-julia hljs">GeoNames.rettype=&quot;DataFrame&quot;</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/tp2750/GeoNamesAPI.jl/blob/63b0fa0b1f0f6a0d3360318be80451644ba96521/src/GeoNamesAPI.jl#L9-L90">source</a></section></details></article></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Saturday 4 April 2026 18:07">Saturday 4 April 2026</span>. Using Julia version 1.12.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/tp2750/GeoNamesAPI.jl/blob/1af52b3dd6832e4928864a8abc981c0a8f8059c8/src/GeoNamesAPI.jl#L9-L210">source</a></section></details></article></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Sunday 19 April 2026 10:39">Sunday 19 April 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
