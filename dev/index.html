@@ -52,8 +52,8 @@ string(x1)
 &quot;</code></pre><pre><code class="language-julia hljs">using GeoNamesAPI, XML
 x2 = search(q=&quot;paris&quot;, maxRows=2)
 # LazyNode (depth=0) Document
-collect(x2)
-# 42-element Vector{LazyNode}:
+first(collect(x2),13)
+# 13-element Vector{LazyNode}:
 #  LazyNode (depth=1) Declaration &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
 #  LazyNode (depth=1) Element &lt;geonames style=&quot;MEDIUM&quot;&gt;
 #  LazyNode (depth=2) Element &lt;totalResultsCount&gt;
@@ -66,36 +66,7 @@ collect(x2)
 #  LazyNode (depth=3) Element &lt;lat&gt;
 #  LazyNode (depth=4) Text &quot;48.85341&quot;
 #  LazyNode (depth=3) Element &lt;lng&gt;
-#  LazyNode (depth=4) Text &quot;2.3488&quot;
-#  LazyNode (depth=3) Element &lt;geonameId&gt;
-#  LazyNode (depth=4) Text &quot;2988507&quot;
-#  LazyNode (depth=3) Element &lt;countryCode&gt;
-#  LazyNode (depth=4) Text &quot;FR&quot;
-#  LazyNode (depth=3) Element &lt;countryName&gt;
-#  LazyNode (depth=4) Text &quot;France&quot;
-#  LazyNode (depth=3) Element &lt;fcl&gt;
-#  LazyNode (depth=4) Text &quot;P&quot;
-#  LazyNode (depth=3) Element &lt;fcode&gt;
-#  LazyNode (depth=4) Text &quot;PPLC&quot;
-#  LazyNode (depth=2) Element &lt;geoname&gt;
-#  LazyNode (depth=3) Element &lt;toponymName&gt;
-#  LazyNode (depth=4) Text &quot;Kingston&quot;
-#  LazyNode (depth=3) Element &lt;name&gt;
-#  LazyNode (depth=4) Text &quot;Kingston&quot;
-#  LazyNode (depth=3) Element &lt;lat&gt;
-#  LazyNode (depth=4) Text &quot;17.99702&quot;
-#  LazyNode (depth=3) Element &lt;lng&gt;
-#  LazyNode (depth=4) Text &quot;-76.79358&quot;
-#  LazyNode (depth=3) Element &lt;geonameId&gt;
-#  LazyNode (depth=4) Text &quot;3489854&quot;
-#  LazyNode (depth=3) Element &lt;countryCode&gt;
-#  LazyNode (depth=4) Text &quot;JM&quot;
-#  LazyNode (depth=3) Element &lt;countryName&gt;
-#  LazyNode (depth=4) Text &quot;Jamaica&quot;
-#  LazyNode (depth=3) Element &lt;fcl&gt;
-#  LazyNode (depth=4) Text &quot;P&quot;
-#  LazyNode (depth=3) Element &lt;fcode&gt;
-#  LazyNode (depth=4) Text &quot;PPLC&quot;</code></pre><p>It uses the LazyNode, but you can aosl use the XML.Node type:</p><pre><code class="language-julia hljs">global GeoNamesAPI.rettype = XML.Node(1)
+#  LazyNode (depth=4) Text &quot;2.3488&quot;</code></pre><p>It uses the LazyNode, but you can aosl use the XML.Node type:</p><pre><code class="language-julia hljs">global GeoNamesAPI.rettype = XML.Node(1)
 x3 = search(q=&quot;paris&quot;, maxRows=2)
 # Node Document (2 children)</code></pre><p>Getting back to LazyNodes is a bit combersome:</p><pre><code class="language-julia hljs">GeoNamesAPI.rettype = XML.LazyNode(XML.Raw([UInt8(1)]))
 search(q=&quot;paris&quot;, maxRows=2)
@@ -127,4 +98,4 @@ search(q=&quot;paris&quot;, maxRows=2)
     &lt;/geoname&gt;
 &lt;/geonames&gt;
 &quot;
-</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/tp2750/GeoNamesAPI.jl/blob/16a856491ea7a53a79442999889111a2367cfa7e/src/GeoNamesAPI.jl#L12-L213">source</a></section></details></article></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Sunday 3 May 2026 14:24">Sunday 3 May 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/tp2750/GeoNamesAPI.jl/blob/47747c1b57dbf088342ef6315b22c9bfaca5d034/src/GeoNamesAPI.jl#L12-L184">source</a></section></details></article></article><nav class="docs-footer"><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.17.0 on <span class="colophon-date" title="Sunday 3 May 2026 14:28">Sunday 3 May 2026</span>. Using Julia version 1.12.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
