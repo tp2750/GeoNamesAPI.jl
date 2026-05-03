@@ -93,8 +93,8 @@ string(x1)
 using GeoNamesAPI, XML
 x2 = search(q="paris", maxRows=2)
 # LazyNode (depth=0) Document
-collect(x2)
-# 42-element Vector{LazyNode}:
+julia> first(collect(x2),13)
+# 13-element Vector{LazyNode}:
 #  LazyNode (depth=1) Declaration <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 #  LazyNode (depth=1) Element <geonames style="MEDIUM">
 #  LazyNode (depth=2) Element <totalResultsCount>
@@ -108,35 +108,6 @@ collect(x2)
 #  LazyNode (depth=4) Text "48.85341"
 #  LazyNode (depth=3) Element <lng>
 #  LazyNode (depth=4) Text "2.3488"
-#  LazyNode (depth=3) Element <geonameId>
-#  LazyNode (depth=4) Text "2988507"
-#  LazyNode (depth=3) Element <countryCode>
-#  LazyNode (depth=4) Text "FR"
-#  LazyNode (depth=3) Element <countryName>
-#  LazyNode (depth=4) Text "France"
-#  LazyNode (depth=3) Element <fcl>
-#  LazyNode (depth=4) Text "P"
-#  LazyNode (depth=3) Element <fcode>
-#  LazyNode (depth=4) Text "PPLC"
-#  LazyNode (depth=2) Element <geoname>
-#  LazyNode (depth=3) Element <toponymName>
-#  LazyNode (depth=4) Text "Kingston"
-#  LazyNode (depth=3) Element <name>
-#  LazyNode (depth=4) Text "Kingston"
-#  LazyNode (depth=3) Element <lat>
-#  LazyNode (depth=4) Text "17.99702"
-#  LazyNode (depth=3) Element <lng>
-#  LazyNode (depth=4) Text "-76.79358"
-#  LazyNode (depth=3) Element <geonameId>
-#  LazyNode (depth=4) Text "3489854"
-#  LazyNode (depth=3) Element <countryCode>
-#  LazyNode (depth=4) Text "JM"
-#  LazyNode (depth=3) Element <countryName>
-#  LazyNode (depth=4) Text "Jamaica"
-#  LazyNode (depth=3) Element <fcl>
-#  LazyNode (depth=4) Text "P"
-#  LazyNode (depth=3) Element <fcode>
-#  LazyNode (depth=4) Text "PPLC"
 ```
 
 It uses the LazyNode, but you can aosl use the XML.Node type:
