@@ -4,3 +4,4 @@ GeoNamesAPI = "765d8e3e-f214-4ecb-acbb-a2789e381393"
 
 [compat]
 Documenter = "1.17.0"
+GeoNamesAPI = "0.1.0"
